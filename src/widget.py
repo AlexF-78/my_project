@@ -1,3 +1,4 @@
+from datetime import datetime
 from masks import get_mask_card_number, get_mask_account
 
 
@@ -21,5 +22,9 @@ def mask_account_card (info: str) -> str:
         card_type = " ". join(parts[:-1])
         masked_number = get_mask_card_number(digit_card)
         return f"{card_type} {masked_number}"
+
+def get_date(date_str: str) -> str:
+    dt = datetime.fromisoformat(date_str)
+    return dt.strftime("%d.%m.%Y")
 
 
