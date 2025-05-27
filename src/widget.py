@@ -28,5 +28,3 @@ def get_date(date_str: str) -> str:
     """Форматирует дату"""
     dt = datetime.fromisoformat(date_str)
     return dt.strftime("%d.%m.%Y")
-
-

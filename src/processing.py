@@ -1,4 +1,4 @@
-def filter_by_state(records: list, state='EXECUTED')-> list:
+def filter_by_state(records: list[dict], state: str = 'EXECUTED') -> list[dict]:
     """
     Фильтрует список словарей по значению ключа 'state'.
     """
@@ -12,7 +12,8 @@ def filter_by_state(records: list, state='EXECUTED')-> list:
             filtered_records.append(record)
     return filtered_records
 
-def sort_by_date(records: list, reverse=True) ->list:
+
+def sort_by_date(records: list[dict], reverse: bool = True) -> list[dict]:
     """
     Сортирует список словарей по дате в порядке убывания или возрастания.
     """
