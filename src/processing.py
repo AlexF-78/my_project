@@ -1,3 +1,5 @@
+from typing import List, Dict, Any
+
 def filter_by_state(records: list[dict], state: str = 'EXECUTED') -> list[dict]:
     """
     Фильтрует список словарей по значению ключа 'state'.
@@ -24,9 +26,9 @@ def sort_by_date(records: list[dict], reverse: bool = True) -> list[dict]:
     for record in records:
         sorted_records.append(record)
 
-    def get_date(record):
+    def get_date(record: Dict[str, Any]) -> str:
         # функция для получения даты из записи
-        return record.get('date', '')
+        return record.get('date') or ''
 
     # сортируем список по дате
     sorted_records = sorted(sorted_records, key=get_date, reverse=reverse)
