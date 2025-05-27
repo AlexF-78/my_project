@@ -11,3 +11,23 @@ def filter_by_state(records: list, state='EXECUTED')-> list:
             # если совпадает, добавляем в результат
             filtered_records.append(record)
     return filtered_records
+
+def sort_by_date(records: list, reverse=True) ->list:
+    """
+    Сортирует список словарей по дате в порядке убывания или возрастания.
+    """
+    # создаем копию списка для сортировки, чтобы не изменять исходный
+    sorted_records = []
+
+    # копируем исходный список
+    for record in records:
+        sorted_records.append(record)
+
+    def get_date(record):
+        # функция для получения даты из записи
+        return record.get('date', '')
+
+    # сортируем список по дате
+    sorted_records = sorted(sorted_records, key=get_date, reverse=reverse)
+
+    return sorted_records
