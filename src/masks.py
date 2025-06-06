@@ -3,15 +3,8 @@ def get_mask_card_number(card_number: str) -> str:
     Маскирует номер карты в формате XXXX XX** **** XXXX.
     где X - цифры номера карты
     """
-    if card_number is None:
-        return None
-    if not isinstance(card_number, str):
-        raise TypeError("Card number must be a string")
-    length = len(card_number)
-    if length <= 4:
-        return card_number
-    elif length <= 15:
-        return card_number
+    if len(card_number) != 16:
+        raise ValueError('Invalid card number')
     else:
         return card_number[:6] + " **** " + card_number[-4:]
 
@@ -35,13 +28,8 @@ def get_mask_account(account_number: str) -> str:
     где X - цифры номера счета .
 
     """
-
-    if account_number is None:
-        return None
-    if not isinstance(account_number, str):
-        raise TypeError("Account number must be a string")
-    if len(account_number) <= 4:
-        return account_number
+    if len(account_number) <= 20:
+        raise ValueError('Invalid account number')
 
     # Получаем последние 4 цифры
     visible_end = account_number[-4:]
