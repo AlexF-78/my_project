@@ -1,4 +1,5 @@
-from typing import List, Dict, Any
+from typing import Dict, Any
+
 
 def filter_by_state(records: list[dict], state: str = 'EXECUTED') -> list[dict]:
     """
@@ -22,7 +23,6 @@ def sort_by_date(records: list[dict], reverse: bool = True) -> list[dict]:
     # создаем копию списка для сортировки, чтобы не изменять исходный
     sorted_records = []
 
-    # копируем исходный список
     for record in records:
         sorted_records.append(record)
 
