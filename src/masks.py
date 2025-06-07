@@ -28,7 +28,7 @@ def get_mask_account(account_number: str) -> str:
     где X - цифры номера счета .
 
     """
-    if len(account_number) <= 20:
+    if len(account_number) != 10:
         raise ValueError('Invalid account number')
 
     # Получаем последние 4 цифры

@@ -181,4 +181,3 @@ cython_debug/
 .cursorindexingignore
 .dist/
 .__pycache__/
-my_project/

@@ -1,6 +1,6 @@
 import pytest
 from datetime import datetime
-from my_project.src.widget import mask_account_card, get_date
+from src.widget import mask_account_card, get_date
 
 # Моки для функций маскировки
 def mock_get_mask_card_number(card_number):
