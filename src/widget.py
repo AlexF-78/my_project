@@ -10,16 +10,16 @@ def mask_account_card(info: str) -> str:
     parts = info.split()
     if not parts:
         return info
-    first_word = parts[0]
-    if first_word.lower() == "счет":
-        if len(parts) != 16:
-            raise ValueError('Invalid parts number')
+    first_word = parts[0].lower()
+    if first_word in ["счет", "счёт"]:
+        if len(parts) < 2:
+            raise ValueError("Invalid account")
         score_number = parts[1]
         masked = get_mask_account(score_number)
         return f"Счет {masked}"
     else:
         if len(parts) < 2:
-            return info  # Нет номера карты
+            raise ValueError("Invalid card number")  # Нет номера карты
         digit_card = parts[-1]
         card_type = " ".join(parts[:-1])
         masked_number = get_mask_card_number(digit_card)
@@ -32,4 +32,4 @@ def get_date(date_str: str) -> str:
         dt = datetime.fromisoformat(date_str)
         return dt.strftime("%d.%m.%Y")
     except ValueError:
-        raise ValueError('Invalid data')
+        raise ValueError("Invalid data")
