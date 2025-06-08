@@ -4,7 +4,7 @@ def get_mask_card_number(card_number: str) -> str:
     где X - цифры номера карты
     """
     if len(card_number) != 16:
-        raise ValueError('Invalid card number')
+        raise ValueError("Invalid card number")
     else:
         return card_number[:6] + " **** " + card_number[-4:]
 
@@ -29,7 +29,7 @@ def get_mask_account(account_number: str) -> str:
 
     """
     if len(account_number) != 10:
-        raise ValueError('Invalid account number')
+        raise ValueError("Invalid account number")
 
     # Получаем последние 4 цифры
     visible_end = account_number[-4:]

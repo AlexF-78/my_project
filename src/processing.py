@@ -1,5 +1,4 @@
 from datetime import datetime
-from typing import Any, Dict
 
 
 def filter_by_state(records: list[dict], state: str = "EXECUTED") -> list[dict]:
