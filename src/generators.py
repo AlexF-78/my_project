@@ -37,3 +37,15 @@ def transaction_descriptions(transactions):
         else:
             # Для любых других случаев
             yield description.capitalize() or 'Описание не указано'
+
+
+def card_number_generator(start, end):
+    """
+    Генератор номеров банковских карт в формате 'XXXX XXXX XXXX XXXX'.
+    """
+    for number in range(start, end + 1):
+        # Форматируем число с ведущими нулями до 16 цифр
+        card_number = str(number).zfill(16)
+        # Разбиваем на группы по 4 цифры
+        formatted_number = ' '.join([card_number[i:i+4] for i in range(0, 16, 4)])
+        yield formatted_number
