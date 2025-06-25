@@ -1,12 +1,12 @@
 import unittest
 from unittest.mock import Mock, patch
 
-from src.external_api import convert_currency  # замените на актуальный путь к вашей функции
+from src.external_api import convert_currency
 
 
 class TestCurrencyConversion(unittest.TestCase):
 
-    @patch('src.external_api.requests.get')  # замените 'your_module' на название файла, где определена функция
+    @patch('src.external_api.requests.get')
     def test_convert_currency_success(self, mock_get):
         # Мокаем успешный ответ API
         mock_response = Mock()
