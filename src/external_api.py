@@ -4,7 +4,7 @@ from src.utils import read_json_file
 
 filepath = "../data/operations.json"
 transactions = read_json_file(filepath)
-print(transactions)
+# print(transactions)
 
 API_KEY = '13efaghyEH1cPaWtvn1Vw7yXfA7OI0e7'
 BASE_URL = 'https://api.apilayer.com/exchangerates_data/latest'
