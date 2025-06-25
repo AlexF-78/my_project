@@ -52,3 +52,4 @@ for description in transaction_descriptions(transactions):
 for card_number in card_number_generator(0000000000000001, 0000000000000010):
     print(card_number)
 
+Необходимо скопировать .env.example в .env и заполнить свои значения.
