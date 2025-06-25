@@ -2,7 +2,6 @@ import requests
 
 from src.utils import read_json_file
 
-# Путь к файлу с операциями
 filepath = "../data/operations.json"
 transactions = read_json_file(filepath)
 
