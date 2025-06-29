@@ -1,7 +1,12 @@
 import json
 import os
 
+from src.logging_config import logging
+
+logger = logging.getLogger('utils')
 filepath = "../data/operations.json"
+
+logger.info("Запуск модуля utils.py")
 
 
 def read_json_file(filepath):
@@ -22,7 +27,9 @@ def read_json_file(filepath):
                 return operation_data
             else:
                 return []
-    except json.JSONDecodeError:
+    except (json.JSONDecodeError, OSError) as e:
+
+        logger.error(f"Ошибка чтения файла {filepath}: {e}")
         return []
 
 
