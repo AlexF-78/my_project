@@ -8,6 +8,8 @@ authors = [
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
+    "requests (>=2.32.4,<3.0.0)",
+    "python-dotenv (>=1.1.0,<2.0.0)"
 ]
 
 [tool.poetry]
@@ -24,6 +26,7 @@ mypy = "^1.15.0"
 [tool.poetry.group.dev.dependencies]
 flake8 = "^7.2.0"
 black = "^25.1.0"
+pytest = "^8.4.0"
 
 
 [tool.isort]

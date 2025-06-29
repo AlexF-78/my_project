@@ -1,23 +1,25 @@
 from datetime import datetime
-from .masks import get_mask_card_number, get_mask_account
+
+from .masks import get_mask_account, get_mask_card_number
 
 
 def mask_account_card(info: str) -> str:
     """
-    Функция маскировки информации карты или счета
+    Маскирует информацию о счёте или карте.
     """
     parts = info.split()
     if not parts:
         return info
-
-    # определяем тип по первому слову
-    first_word = parts[0]
-    if first_word.lower() == "счет":
-        # Обработка счета
+    first_word = parts[0].lower()
+    if first_word in ["счет", "счёт"]:
+        if len(parts) < 2:
+            raise ValueError("Invalid account")
         score_number = parts[1]
         masked = get_mask_account(score_number)
         return f"Счет {masked}"
     else:
+        if len(parts) < 2:
+            raise ValueError("Invalid card number")  # Нет номера карты
         digit_card = parts[-1]
         card_type = " ".join(parts[:-1])
         masked_number = get_mask_card_number(digit_card)
@@ -25,6 +27,9 @@ def mask_account_card(info: str) -> str:
 
 
 def get_date(date_str: str) -> str:
-    """Форматирует дату"""
-    dt = datetime.fromisoformat(date_str)
-    return dt.strftime("%d.%m.%Y")
+    """Форматирует дату из ISO-формата в дд.мм.гггг."""
+    try:
+        dt = datetime.fromisoformat(date_str)
+        return dt.strftime("%d.%m.%Y")
+    except ValueError:
+        raise ValueError("Invalid data")
