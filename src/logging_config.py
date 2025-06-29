@@ -22,7 +22,7 @@ logger_masks.addHandler(file_handler_masks)
 # Настройка логера для utils
 logger_utils = logging.getLogger('utils')
 logger_utils.setLevel(logging.DEBUG)
-file_handler_utils = logging.FileHandler(os.path.join(LOG_DIR, 'utils.log'), mode='w', encoding='utf-8' )
+file_handler_utils = logging.FileHandler(os.path.join(LOG_DIR, 'utils.log'), mode='w', encoding='utf-8')
 file_handler_utils.setLevel(logging.DEBUG)
 file_handler_utils.setFormatter(formatter)
 logger_utils.addHandler(file_handler_utils)
