@@ -60,3 +60,61 @@ for card_number in card_number_generator(0000000000000001, 0000000000000010):
 
 2. read_xlsx_file
 Читает XLSX файл с финансовыми операциями и возвращает список словарей.
+
+## Новые функции:
+
+## Поиск операций (`src/bank_operations.py`)
+```python
+def process_bank_search(data: list[dict], search: str) -> list[dict]:
+    """
+    Ищет операции по строке в описании (регистронезависимо)
+    
+    Аргументы:
+        data: Список операций
+        search: Строка для поиска
+        
+    Возвращает:
+        Список операций, содержащих искомую строку
+    """
+
+
+#### Подсчет операций по категориям (`src/bank_processing.py`)
+
+class Поиск:
+pass
+
+```python
+def process_bank_operations(data: list[dict], categories: list[str]) -> dict[str, int]:
+    """
+    Считает количество операций по категориям
+    
+    Аргументы:
+        data: Список операций
+        categories: Список категорий для поиска
+        
+    Возвращает:
+        Словарь {категория: количество}
+    """
+
+## Примеры использования
+
+1. Поиск операций:
+```python
+from src.bank_operations import process_bank_search
+
+result = process_bank_search(transactions, "перевод")
+
+2. Анализ по категориям:
+```python
+from src.bank_processing import process_bank_operations
+
+stats = process_bank_operations(transactions, ["перевод", "оплата"])
+
+
+## Требования
+- Python 3.8+
+- Зависимости: `pandas`, `pytest`, `python-dateutil`
+
+Установка зависимостей:
+```bash
+pip install -r requirements.txt
